@@ -1,7 +1,13 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+
+import Featured from '../components/featured';
 
 const HomePage = () => {
-    return <div>HomePage</div>;
+    return (
+        <Fragment>
+            <Featured />
+        </Fragment>
+    );
 };
 
 export default HomePage;
