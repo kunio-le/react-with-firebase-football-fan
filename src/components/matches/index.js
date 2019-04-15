@@ -19,10 +19,10 @@ const Matches = () => {
                     <Tag
                         background="#ffffff"
                         color="#0e1731"
-                        fontSize="1.5rem"
+                        fontSize="1rem"
                         linkTo="/matches"
                         more={{ border: 'solid 1px #0e1731' }}>
-                        See All Matches
+                        See More Matches
                     </Tag>
                 </div>
             </div>
