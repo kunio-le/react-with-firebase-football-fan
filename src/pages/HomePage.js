@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 
 import Featured from '../components/featured';
 import Matches from '../components/matches';
+import MeetThePlayer from '../components/meet-the-player';
 
 const HomePage = () => {
     return (
@@ -10,6 +11,7 @@ const HomePage = () => {
                 <Featured />
             </div>
             <Matches />
+            <MeetThePlayer />
         </Fragment>
     );
 };
