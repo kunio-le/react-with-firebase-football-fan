@@ -6,7 +6,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
-    background: #465b73;
+    /* background: #465b73; */
 }
 
 a {
@@ -167,10 +167,9 @@ footer .footer_discl {
 ===============================*/
 
 .featured_wrapper {
-    margin: 0 auto;
     width: 100%;
-    margin-top: 90px;
-    height: 85vh;
+    margin-top: 80px;
+    height: 88vh;
     overflow: hidden;
     background-color: '#00285e' !important;
     z-index: -100;
@@ -224,23 +223,23 @@ footer .footer_discl {
 
 .home_matches_wrapper {
     background: #98c5e9;
-    margin-top: 9px;
-    padding: 50px 0px;
+    /* margin-top: 9px; */
+    padding: 8vh 0vw;
 }
 
 .home_matches_wrapper .home_matches {
     flex-wrap: wrap;
     display: flex;
-    margin-top: 60px;
+    margin-top: 8vh;
 }
 
 .home_matches_wrapper .home_matches .item {
     width: 50%;
-    margin: 35px 0px;
+    margin: 5vh 0vw;
 }
 
 .home_matches_wrapper .home_matches .item .wrapper {
-    padding-right: 30px;
+    padding-right: 2vw;
 }
 
 /*=============================
@@ -249,7 +248,7 @@ footer .footer_discl {
 
 .match_block .match_date {
     color: #ffffff;
-    font-size: 18px;
+    font-size: 1em;
 }
 
 .match_block .match_wrapper .match_top,
@@ -257,7 +256,7 @@ footer .footer_discl {
     display: flex;
 }
 .match_block .match_wrapper .match_bottom {
-    margin-top: 5px;
+    margin-top: 1vh;
 }
 
 .match_block .match_wrapper .match_top .left,
@@ -282,7 +281,7 @@ footer .footer_discl {
 }
 .match_block .match_wrapper .match_top .left .team_name,
 .match_block .match_wrapper .match_bottom .left .team_name {
-    font-size: 30px;
+    font-size: 2rem;
     padding: 6px 10px;
 }
 
@@ -291,9 +290,9 @@ footer .footer_discl {
     background: #0e1731;
     width: 70px;
     color: #ffffff;
-    font-size: 50px;
+    font-size: 2rem;
     text-align: center;
-    padding-top: 6px;
+    padding-top: 8px;
 }
 
 .match_box_big {
