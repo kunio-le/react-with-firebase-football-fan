@@ -3,6 +3,7 @@ import React, { Fragment } from 'react';
 import Featured from '../components/featured';
 import Matches from '../components/matches';
 import MeetThePlayer from '../components/meet-the-player';
+import Promotion from '../components/promotion';
 
 const HomePage = () => {
     return (
@@ -12,6 +13,7 @@ const HomePage = () => {
             </div>
             <Matches />
             <MeetThePlayer />
+            <Promotion />
         </Fragment>
     );
 };

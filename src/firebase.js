@@ -16,4 +16,6 @@ const firebaseDB = firebase.database();
 
 const matchesData = firebaseDB.ref('matches');
 
-export { firebase, matchesData };
+const promotionsData = firebaseDB.ref('promotions');
+
+export { firebase, matchesData, promotionsData };

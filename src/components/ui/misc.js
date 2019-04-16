@@ -85,3 +85,23 @@ export const reverseArray = array => {
         return null;
     }
 };
+
+export const validation = formDataElement => {
+    let { valid, validationMsg } = formDataElement;
+    if (
+        !(!formDataElement.validation.required || formDataElement.value.trim())
+    ) {
+        valid = false;
+        validationMsg = 'Please enter your email';
+    } else if (formDataElement.validation.email) {
+        const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        valid = emailRegex.test(String(formDataElement.value).toLowerCase());
+        validationMsg = !valid ? 'Please enter exactly email' : '';
+    } else {
+        valid = true;
+        validationMsg = '';
+    }
+    formDataElement.valid = valid;
+    formDataElement.validationMsg = validationMsg;
+    return formDataElement;
+};
