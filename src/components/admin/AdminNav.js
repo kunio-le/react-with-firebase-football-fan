@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 import { firebase } from '../../firebase';
 
@@ -18,7 +18,7 @@ const AdminNav = () => {
         firebase
             .auth()
             .signOut()
-            .then(() => console.log('logout successfull'))
+            .then(() => <Redirect to="/" />)
             .catch(err => console.log(err));
     };
 
