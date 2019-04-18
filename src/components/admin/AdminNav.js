@@ -8,10 +8,10 @@ import ListItem from '@material-ui/core/ListItem';
 
 const AdminNav = () => {
     const navList = [
-        { name: 'Matches', linkTo: '/matches' },
-        { name: 'AddMatches', linkTo: '/add-matches' },
-        { name: 'Player', linkTo: '/player' },
-        { name: 'AddPlayer', linkTo: '/add-player' }
+        { name: 'Matches', linkTo: '/dashboard/matches' },
+        { name: 'AddMatches', linkTo: '/dashboard/add-matches' },
+        { name: 'Player', linkTo: '/dashboard/player' },
+        { name: 'AddPlayer', linkTo: '/dashboard/add-player' }
     ];
 
     const logoutHandler = () => {

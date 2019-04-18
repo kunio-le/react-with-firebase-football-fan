@@ -10,6 +10,7 @@ import TheTeam from './pages/TheTeam';
 import Matches from './pages/Matches';
 import Login from './components/admin/Login';
 import Dashboard from './components/admin/Dashboard';
+import AdminMatches from './components/admin/matches';
 
 const Routes = props => (
     <Fragment>
@@ -20,6 +21,12 @@ const Routes = props => (
                     path="/dashboard"
                     {...props}
                     component={Dashboard}
+                />
+                <PrivateRoute
+                    exact
+                    path="/dashboard/matches"
+                    {...props}
+                    component={AdminMatches}
                 />
                 <PublicRoute
                     exact
