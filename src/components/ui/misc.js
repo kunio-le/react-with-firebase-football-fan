@@ -92,7 +92,7 @@ export const validation = formDataElement => {
         !(!formDataElement.validation.required || formDataElement.value.trim())
     ) {
         valid = false;
-        validationMsg = 'Please enter your email';
+        validationMsg = `Please enter your ${formDataElement.config.name}`;
     } else if (formDataElement.validation.email) {
         const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         valid = emailRegex.test(String(formDataElement.value).toLowerCase());
