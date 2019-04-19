@@ -63,9 +63,11 @@ class ShowPlayer extends Component {
                                     {player.name}
                                 </Link>
                             </TableCell>
-
                             <TableCell align="center">
-                                {player.lastname}
+                                <Link
+                                    to={`/dashboard/edit-player/${player.id}`}>
+                                    {player.lastname}
+                                </Link>
                             </TableCell>
                             <TableCell align="center">
                                 {player.number}

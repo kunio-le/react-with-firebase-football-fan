@@ -162,6 +162,16 @@ export class AddEditPlayer extends Component {
         for (let key in newStateData) {
             if (Object.keys(player).length > 0) {
                 if (key === 'image') {
+                    newStateData[key].image = player[key];
+                    firebase
+                        .storage()
+                        .ref('players')
+                        .child(newStateData[key].image)
+                        .getDownloadURL()
+                        .then(url => {
+                            newStateData[key].playerImageUrl = url;
+                            this.setState({ formSuccess: ' ' });
+                        });
                 } else {
                     newStateData[key].value = player[key];
                 }
