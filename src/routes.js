@@ -13,6 +13,7 @@ import Dashboard from './components/admin/Dashboard';
 import AddEditMatch from './components/admin/matches/AddEditMatch';
 import AdminMatches from './components/admin/matches';
 import ShowPlayer from './components/admin/player/ShowPlayer';
+import AddEditPlayer from './components/admin/player/AddEditPlayer';
 
 const Routes = props => (
     <Fragment>
@@ -48,6 +49,18 @@ const Routes = props => (
                     path="/dashboard/players"
                     {...props}
                     component={ShowPlayer}
+                />
+                <PrivateRoute
+                    exact
+                    path="/dashboard/add-player"
+                    {...props}
+                    component={AddEditPlayer}
+                />
+                <PrivateRoute
+                    exact
+                    path="/dashboard/edit-player/:id"
+                    {...props}
+                    component={AddEditPlayer}
                 />
                 <PublicRoute
                     exact
