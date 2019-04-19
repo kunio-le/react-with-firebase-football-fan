@@ -31,6 +31,10 @@ export class MatchesTable extends Component {
             .catch(err => console.log(err));
     }
 
+    componentWillUnmount() {
+        matchesData.off();
+    }
+
     loadingProgress = () => (
         <div style={{ textAlign: 'center', paddingTop: '15vh' }}>
             <CircularProgress disableShrink size={90} />

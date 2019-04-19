@@ -36,6 +36,12 @@ const Routes = props => (
                     {...props}
                     component={AddEditMatch}
                 />
+                <PrivateRoute
+                    exact
+                    path="/dashboard/add-match"
+                    {...props}
+                    component={AddEditMatch}
+                />
                 <PublicRoute
                     exact
                     path="/login"

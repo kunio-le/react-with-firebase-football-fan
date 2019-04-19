@@ -16,9 +16,9 @@ export class AddEditMatch extends Component {
         let formFullFill = true;
         for (let key in newFormData) {
             newFormData[key].valid = newFormData[key].value ? true : false;
-            formFullFill &= newFormData[key].valid;
+            formFullFill = formFullFill && newFormData[key].valid;
         }
-        this.setState({ formError: false, formFullFill: formFullFill });
+        this.setState({ formError: false, formFullFill });
         this.setState({ formData: newFormData });
     };
 
@@ -30,15 +30,9 @@ export class AddEditMatch extends Component {
             newFormData[key].validationMsg = '';
         }
         this.setState({
-            // formSuccess: type
-            //     ? 'Thank you for your enroll'
-            //     : 'Email had already enroll',
             formError: false,
             formData: newFormData
         });
-        // --------------Hide success Msg after 2s------------- //
-        // setTimeout(() => this.setState({ formSuccess: '' }), 3000);
-        // --------------Hide success Msg after 2s------------- //
     };
     successUpdate = message => {
         this.setState({ formSuccess: message });
@@ -68,9 +62,12 @@ export class AddEditMatch extends Component {
                     .ref(`matches/${this.state.matchId}`)
                     .update(dataToSubmit)
                     .then(() => this.successUpdate('Edit successfull'))
-                    .catch(err => console.log(err));
+                    .catch(() => this.setState({ formError: true }));
             } else {
-                //add match
+                matchesData
+                    .push(dataToSubmit)
+                    .then(this.props.history.push('/dashboard/matches'))
+                    .catch(() => this.setState({ formError: true }));
             }
         } else {
             this.setState({ formError: true, formSuccess: '' });
@@ -230,19 +227,23 @@ export class AddEditMatch extends Component {
         return newTeams;
     };
 
-    updateForm = (matchData, teams, matchId) => {
+    updateForm = (matchData, teams, matchId, formType) => {
         const newStateData = { ...this.state.formData };
         for (let key in newStateData) {
-            newStateData[key].value = matchData[key];
+            if (Object.keys(matchData).length > 0) {
+                newStateData[key].value = matchData[key];
+            }
             if (key === 'local' || key === 'away') {
                 newStateData[key].config.options = teams;
             }
         }
         this.setState({
             formData: newStateData,
-            formType: 'Edit Match',
-            matchId: matchId
+            formType: formType
         });
+        if (matchId) {
+            this.setState({ matchId });
+        }
     };
 
     componentDidMount() {
@@ -253,7 +254,10 @@ export class AddEditMatch extends Component {
         });
         const matchId = this.props.match.params.id;
         if (!matchId) {
-            //AddMatch
+            teamsData.once('value').then(snapShot => {
+                teams = this.getTeams(firebaseLooper(snapShot));
+                this.updateForm({}, teams, false, 'Add Match');
+            });
         } else {
             matchesData.once('value').then(snapShot => {
                 let isId = false;
@@ -268,10 +272,15 @@ export class AddEditMatch extends Component {
                 } else {
                     const matchData = snapShot.val()[matchId];
 
-                    this.updateForm(matchData, teams, matchId);
+                    this.updateForm(matchData, teams, matchId, 'Edit Match');
                 }
             });
         }
+    }
+
+    componentWillUnmount() {
+        matchesData.off();
+        teamsData.off();
     }
 
     render() {
