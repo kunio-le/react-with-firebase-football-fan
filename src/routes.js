@@ -12,6 +12,7 @@ import Login from './components/admin/Login';
 import Dashboard from './components/admin/Dashboard';
 import AddEditMatch from './components/admin/matches/AddEditMatch';
 import AdminMatches from './components/admin/matches';
+import ShowPlayer from './components/admin/player/ShowPlayer';
 
 const Routes = props => (
     <Fragment>
@@ -41,6 +42,12 @@ const Routes = props => (
                     path="/dashboard/add-match"
                     {...props}
                     component={AddEditMatch}
+                />
+                <PrivateRoute
+                    exact
+                    path="/dashboard/players"
+                    {...props}
+                    component={ShowPlayer}
                 />
                 <PublicRoute
                     exact

@@ -10,7 +10,7 @@ const AdminNav = () => {
     const navList = [
         { name: 'Matches', linkTo: '/dashboard/matches' },
         { name: 'AddMatches', linkTo: '/dashboard/add-match' },
-        { name: 'Player', linkTo: '/dashboard/player' },
+        { name: 'Player', linkTo: '/dashboard/players' },
         { name: 'AddPlayer', linkTo: '/dashboard/add-player' }
     ];
 
