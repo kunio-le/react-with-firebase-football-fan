@@ -10,6 +10,7 @@ import TheTeam from './pages/TheTeam';
 import Matches from './pages/Matches';
 import Login from './components/admin/Login';
 import Dashboard from './components/admin/Dashboard';
+import AddEditMatch from './components/admin/matches/AddEditMatch';
 import AdminMatches from './components/admin/matches';
 
 const Routes = props => (
@@ -22,11 +23,18 @@ const Routes = props => (
                     {...props}
                     component={Dashboard}
                 />
+
                 <PrivateRoute
                     exact
                     path="/dashboard/matches"
                     {...props}
                     component={AdminMatches}
+                />
+                <PrivateRoute
+                    exact
+                    path="/dashboard/edit-match/:id"
+                    {...props}
+                    component={AddEditMatch}
                 />
                 <PublicRoute
                     exact

@@ -63,7 +63,7 @@ export class MatchesTable extends Component {
                                 {match.resultAway}
                             </TableCell>
                             <TableCell>
-                                {match.final ? (
+                                {match.final === 'Yes' ? (
                                     <div style={{ color: 'green' }}>Final</div>
                                 ) : (
                                     <div style={{ color: 'red' }}>
@@ -79,7 +79,6 @@ export class MatchesTable extends Component {
     );
 
     render() {
-        console.log(this.state.matches);
         return this.state.isLoading
             ? this.loadingProgress()
             : this.showMatches(this.state.matches);

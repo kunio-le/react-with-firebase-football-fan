@@ -6,11 +6,41 @@ const FormFeild = ({ formData, id, onChange }) => {
     case 'input':
         template = (
             <div>
+                {formData.config.label && (
+                    <div className="label_inputs">
+                        {formData.config.label}
+                    </div>
+                )}
                 <input
                     {...formData.config}
                     value={formData.value}
                     onChange={e => onChange({ e, id })}
                 />
+            </div>
+        );
+        break;
+
+    case 'select':
+        template = (
+            <div>
+                {formData.config.label && (
+                    <div className="label_inputs">
+                        {formData.config.label}
+                    </div>
+                )}
+                <select
+                    {...formData.config}
+                    value={formData.value}
+                    onChange={e => onChange({ e, id })}>
+                    <option value="" disabled>
+                            ---Select One---
+                    </option>
+                    {formData.config.options.map(option => (
+                        <option key={option.key} value={option.value}>
+                            {option.value}
+                        </option>
+                    ))}
+                </select>
             </div>
         );
         break;
