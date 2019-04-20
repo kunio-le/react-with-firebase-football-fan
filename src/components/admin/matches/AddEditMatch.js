@@ -8,8 +8,6 @@ import FormField from '../../ui/FormFeild';
 import { matchesData, teamsData, firebaseDB } from '../../../firebase';
 
 export class AddEditMatch extends Component {
-    toErrorPage = () => <Redirect to="/error-404" />;
-
     onChange = element => {
         const newFormData = { ...this.state.formData };
         newFormData[element.id].value = element.e.target.value;
@@ -288,10 +286,9 @@ export class AddEditMatch extends Component {
     }
 
     render() {
-        if (this.state.redirecto404) {
-            this.toErrorPage();
-        }
-        return (
+        return this.state.redirecto404 ? (
+            <Redirect to="/error-404" />
+        ) : (
             <AdminLayout>
                 <div className="editmatch_dialog_wrapper">
                     {this.state.formType && <h2>{this.state.formType}</h2>}

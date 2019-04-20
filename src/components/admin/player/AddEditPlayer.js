@@ -13,8 +13,6 @@ import { playerData, firebaseDB, firebase } from '../../../firebase';
 import FileUploader from 'react-firebase-file-uploader';
 
 export class AddEditPlayer extends Component {
-    toErrorPage = () => <Redirect to="/error-404" />;
-
     onChange = element => {
         const newFormData = { ...this.state.formData };
         newFormData[element.id].value = element.e.target.value;
@@ -82,6 +80,7 @@ export class AddEditPlayer extends Component {
 
     state = {
         playerId: '',
+        error404: false,
         formError: false,
         formType: '',
         formSuccess: '',
@@ -247,7 +246,7 @@ export class AddEditPlayer extends Component {
                     }
                 }
                 if (!isId) {
-                    this.toErrorPage();
+                    this.setState({ error404: true });
                 } else {
                     const player = snapShot.val()[playerId];
 
@@ -262,7 +261,9 @@ export class AddEditPlayer extends Component {
     }
 
     render() {
-        return (
+        return this.state.error404 ? (
+            <Redirect to="/error-404" />
+        ) : (
             <AdminLayout>
                 <div className="editmatch_dialog_wrapper">
                     {this.state.formType && <h2>{this.state.formType}</h2>}
