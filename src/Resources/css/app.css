@@ -309,6 +309,8 @@ footer .footer_discl {
     box-sizing: border-box;
     height: 143px;
     clear: both;
+    display: flex;
+    align-items: center;
 }
 
 .match_box_big .block_wraper {
@@ -341,7 +343,6 @@ footer .footer_discl {
 
 .block_wraper.nfo {
     border-left: 1px solid #98c6e9;
-    height: 102px;
     padding-left: 10px;
     font-weight: 300;
     color: #5e5e5e;
@@ -520,7 +521,7 @@ footer .footer_discl {
 ===============================*/
 
 .the_matches_container {
-    margin-top: 96px;
+    margin-top: 84px;
 }
 
 .the_matches_wrapper {

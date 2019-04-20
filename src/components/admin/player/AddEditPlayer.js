@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import { Redirect } from 'react-router-dom';
+
 import CircularProgress from '@material-ui/core/CircularProgress';
 
 import AdminLayout from '../../../hoc/AdminLayout';
@@ -11,6 +13,8 @@ import { playerData, firebaseDB, firebase } from '../../../firebase';
 import FileUploader from 'react-firebase-file-uploader';
 
 export class AddEditPlayer extends Component {
+    toErrorPage = () => <Redirect to="/error-404" />;
+
     onChange = element => {
         const newFormData = { ...this.state.formData };
         newFormData[element.id].value = element.e.target.value;
@@ -243,7 +247,7 @@ export class AddEditPlayer extends Component {
                     }
                 }
                 if (!isId) {
-                    console.log('error 404');
+                    this.toErrorPage();
                 } else {
                     const player = snapShot.val()[playerId];
 

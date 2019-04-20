@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import { Redirect } from 'react-router-dom';
 import AdminLayout from '../../../hoc/AdminLayout';
 
 import { validation, firebaseLooper } from '../../ui/misc';
@@ -7,6 +8,8 @@ import FormField from '../../ui/FormFeild';
 import { matchesData, teamsData, firebaseDB } from '../../../firebase';
 
 export class AddEditMatch extends Component {
+    toErrorPage = () => <Redirect to="/error-404" />;
+
     onChange = element => {
         const newFormData = { ...this.state.formData };
         newFormData[element.id].value = element.e.target.value;
@@ -76,6 +79,7 @@ export class AddEditMatch extends Component {
 
     state = {
         matchId: '',
+        redirecto404: false,
         formError: false,
         formType: '',
         formSuccess: '',
@@ -268,7 +272,7 @@ export class AddEditMatch extends Component {
                     }
                 }
                 if (!isId) {
-                    console.log('error 404');
+                    this.setState({ redirecto404: true });
                 } else {
                     const matchData = snapShot.val()[matchId];
 
@@ -284,6 +288,9 @@ export class AddEditMatch extends Component {
     }
 
     render() {
+        if (this.state.redirecto404) {
+            this.toErrorPage();
+        }
         return (
             <AdminLayout>
                 <div className="editmatch_dialog_wrapper">

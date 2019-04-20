@@ -14,6 +14,7 @@ import AddEditMatch from './components/admin/matches/AddEditMatch';
 import AdminMatches from './components/admin/matches';
 import ShowPlayer from './components/admin/player/ShowPlayer';
 import AddEditPlayer from './components/admin/player/AddEditPlayer';
+import Error404 from './pages/Error404';
 
 const Routes = props => (
     <Fragment>
@@ -72,6 +73,17 @@ const Routes = props => (
                 <Route exact path="/" component={HomePage} />
                 <Route exact path="/the-team" component={TheTeam} />
                 <Route exact path="/matches" component={Matches} />
+                <PublicRoute
+                    path="/error-404"
+                    {...props}
+                    retricted={false}
+                    component={Error404}
+                />
+                <PublicRoute
+                    {...props}
+                    retricted={false}
+                    component={Error404}
+                />
             </Switch>
         </Layout>
     </Fragment>
