@@ -70,9 +70,28 @@ const Routes = props => (
                     retricted={true}
                     component={Login}
                 />
-                <Route exact path="/" component={HomePage} />
-                <Route exact path="/the-team" component={TheTeam} />
-                <Route exact path="/matches" component={Matches} />
+                <PublicRoute
+                    exact
+                    path="/"
+                    {...props}
+                    retricted={false}
+                    component={HomePage}
+                />
+                <PublicRoute
+                    exact
+                    path="/the-team"
+                    {...props}
+                    retricted={false}
+                    component={TheTeam}
+                />
+                <PublicRoute
+                    exact
+                    path="/matches"
+                    {...props}
+                    retricted={false}
+                    component={Matches}
+                />
+
                 <PublicRoute
                     path="/error-404"
                     {...props}

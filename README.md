@@ -1,3 +1,12 @@
+---
+
+Demo: https://mancity-9d731.firebaseapp.com/login
+
+user: test@test.com
+password: 12345678
+
+---
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
