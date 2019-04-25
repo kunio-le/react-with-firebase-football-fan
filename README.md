@@ -1,9 +1,3 @@
----
-
-Demo: https://mancity-9d731.firebaseapp.com/login
-
-user: test@test.com
-password: 12345678
 
 ---
 
